@@ -27,6 +27,7 @@ const app = new Koa();
 app.use(koaBody());
 
 router.post('/relay', async (ctx) => {
+  const { body } = ctx;
   await Promise.all(
     body.metrics.map(async (metric) =>
       fetch(process.env.HOOK, {
