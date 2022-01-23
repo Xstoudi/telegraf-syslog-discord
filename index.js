@@ -29,7 +29,7 @@ app.use(koaBody());
 router.post('/relay', async (ctx) => {
   await Promise.all(
     body.metrics.map(async (metric) =>
-      fetch('process.env.HOOK', {
+      fetch(process.env.HOOK, {
         method: 'post',
         body: JSON.stringify({
           content: null,
